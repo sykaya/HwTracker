@@ -112,9 +112,9 @@ Developed with performance engineers, system administrators, and security resear
 ### Option 2: Build from Source
 
 ```bash
-git clone https://github.com/SyKaya/HWTracker.git
-cd HWTracker
+git clone https://github.com/sykaya/HwTracker.git
+cd HwTracker
 mkdir build && cd build
 cmake .. -DCMAKE_PREFIX_PATH="C:/Qt/6.x.x/msvc2019_64"
 cmake --build . --config Release
-./Release/HWTracker.exe
+./Release/HwTracker.exe
