@@ -13,30 +13,31 @@ find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets LinguistTools Network)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools Network)
 
 set(TS_FILES HwTracker_en_US.ts)
+
+# DOSYA YOLLARI BURADA GÜNCELLENDİ (src/ ve include/ eklendi)
 set(PROJECT_SOURCES
-        main.cpp
-        mainwindow.cpp
-        mainwindow.h
-        DraggableLabel.h
-        includes.h
-        mainwindow.ui
-        app.rc
-        DraggableLabel.cpp
+        src/main.cpp
+        src/mainwindow.cpp
+        include/mainwindow.h
+        include/draggablelabel.h
+        include/includes.h
+        forms/mainwindow.ui
+        src/app.rc
+        src/draggablelabel.cpp
         ${TS_FILES}
 )
 
-
 if(WIN32)
+    # Assets klasörü ana dizindeyse bu yol doğru
     set(APP_ICON_RESOURCE "assets/icon.ico")
     list(APPEND PROJECT_SOURCES ${APP_ICON_RESOURCE})
 endif()
-
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(HwTracker
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        app.rc
+        src/app.rc
         assets/icoo.ico
     )
     qt_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
@@ -66,7 +67,11 @@ if(WIN32)
     )
 endif()
 
-target_include_directories(HwTracker PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+# Header dosyalarını bulabilmesi için include dizinini ekliyoruz
+target_include_directories(HwTracker PRIVATE 
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+)
 
 if(${QT_VERSION} VERSION_LESS 6.1.0)
   set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.HwTracker)
