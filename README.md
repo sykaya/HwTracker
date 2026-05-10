@@ -37,7 +37,7 @@ Developed with performance engineers, system administrators, and security resear
 
 ### Network Monitoring
 
-![Network Test](screenshots/network.png)
+![Network Test](assets/HwTracker.JPG)
 
 *Real-time download/upload speeds and ICMP latency measurement*
 
