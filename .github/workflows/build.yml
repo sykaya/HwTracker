@@ -21,11 +21,10 @@ jobs:
         host: 'windows'
         target: 'desktop'
         arch: 'win64_msvc2019_64'
-        # Network modülünü kullandığın için kurulumda olduğundan emin olalım
-        modules: 'qtnetwork' 
+        # Modül ismi 'network' olarak düzeltildi
+        modules: 'network' 
     
     - name: Configure CMake
-      # Qt yolunu otomatik tanıması için CMAKE_PREFIX_PATH ekliyoruz
       run: |
         cmake -B build -S . -DCMAKE_PREFIX_PATH=${{ env.Qt6_DIR }} -DCMAKE_BUILD_TYPE=Release
     
@@ -36,6 +35,5 @@ jobs:
     - name: Upload executable
       uses: actions/upload-artifact@v4
       with:
-        name: HWTracker-Windows
-        # Qt projelerinde exe genellikle build klasörünün içindeki Release klasörüne düşer
+        name: HWTracker-Windows-Build
         path: build/Release/HwTracker.exe
