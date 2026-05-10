@@ -14,7 +14,6 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools Net
 
 set(TS_FILES HwTracker_en_US.ts)
 
-# DOSYA YOLLARI BURADA GÜNCELLENDİ (src/ ve include/ eklendi)
 set(PROJECT_SOURCES
         src/main.cpp
         src/mainwindow.cpp
@@ -67,7 +66,7 @@ if(WIN32)
     )
 endif()
 
-# Header dosyalarını bulabilmesi için include dizinini ekliyoruz
+
 target_include_directories(HwTracker PRIVATE 
     ${CMAKE_CURRENT_SOURCE_DIR}/include
     ${CMAKE_CURRENT_SOURCE_DIR}/src
