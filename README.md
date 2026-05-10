@@ -41,7 +41,7 @@ Developed with performance engineers, system administrators, and security resear
 
 *Professional toolchain used during development and debugging: Qt Creator, x64dbg, Ghidra, CFF Explorer, Process Hacker, and Docker*
 
-> The tools shown above are part of the standard development and validation workflow. They were used for debugging, binary analysis, memory profiling, and ensuring software integrity — not for reverse engineering third-party products. This reflects a disciplined engineering approach to building reliable system software.
+> The development environment is equipped with system analysis and diagnostic tools to ensure low-level software integrity. These utilities were instrumental during the debugging and performance profiling stages, enabling deep-dive verification of system calls and resource management.
 
 ---
 
