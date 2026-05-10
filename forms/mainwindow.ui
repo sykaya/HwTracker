@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>650</width>
+    <height>550</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Hardware Monitor</string>
+  </property>
+  <property name="styleSheet">
+   <string>
+   QMainWindow {
+       background-color: #1e1e1e;
+   }
+   QWidget#centralwidget {
+       background-color: #252526;
+   }
+   QGroupBox {
+       font-family: monospace;
+       font-size: 11px;
+       color: #cccccc;
+       border: 1px solid #3c3c3c;
+       border-radius: 4px;
+       margin-top: 6;
+       background-color: #1e1e1e;
+   }
+   QGroupBox::title {
+       subcontrol-origin: margin;
+       left: 12px;
+       top: -4px;
+       padding: 0 4px;
+       color: #569cd6;
+       background-color: #1e1e1e;
+   }
+   QPushButton {
+       background-color: #3c3c3c;
+       border: none;
+       color: #f0f0f0;
+       font-family: monospace;
+       font-size: 11px;
+       padding: 6px 14px;
+   }
+   QPushButton#btnRefresh, QPushButton#btnNetworkTest {
+       border-radius: 8px;
+   }
+   QPushButton:hover {
+       background-color: #505050;
+   }
+   QProgressBar {
+       background-color: #2d2d30;
+       border: none;
+       border-radius: 6px;
+       text-align: center;
+       color: #cccccc;
+       font-size: 9px;
+       height: 20px;
+   }
+   QProgressBar::chunk {
+       background-color: #569cd6;
+       border-radius: 6px;
+   }
+   QLabel {
+       color: #bbbbbb;
+       font-family: monospace;
+       font-size: 10px;
+   }
+   QLabel#lblTitle {
+       color: #569cd6;
+       font-size: 13px;
+       padding: 6px;
+   }
+   QLabel#lblTitle a {
+       color: #569cd6;
+       text-decoration: none;
+   }
+   QLabel#lblTitle a:hover {
+       color: #9cdcfe;
+       text-decoration: underline;
+   }
+   QListWidget {
+       background-color: #1e1e1e;
+       border: 1px solid #3c3c3c;
+       border-radius: 4px;
+       color: #cccccc;
+       font-family: monospace;
+       font-size: 10px;
+       outline: none;
+   }
+   QListWidget::item:selected {
+       background-color: #3c3c3c;
+       color: #ffffff;
+   }
+   QMenuBar {
+       background-color: #1e1e1e;
+       color: #bbbbbb;
+       border-bottom: 1px solid #3c3c3c;
+   }
+   QMenuBar::item:selected {
+       background-color: #3c3c3c;
+       color: #ffffff;
+   }
+   QMenu {
+       background-color: #1e1e1e;
+       border: 1px solid #3c3c3c;
+       color: #cccccc;
+   }
+   QMenu::item:selected {
+       background-color: #3c3c3c;
+       color: #ffffff;
+   }
+    }
+   </string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="mainLayout">
+    <property name="spacing">
+     <number>6</number>
+    </property>
+    <property name="leftMargin">
+     <number>8</number>
+    </property>
+    <property name="topMargin">
+     <number>8</number>
+    </property>
+    <property name="rightMargin">
+     <number>8</number>
+    </property>
+    <property name="bottomMargin">
+     <number>8</number>
+    </property>
+    <item>
+     <widget class="QLabel" name="lblTitle">
+      <property name="styleSheet">
+       <string>background-color: #252526; padding: 8px; margin-bottom: 4px;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;
+&lt;h1 style='color:#569cd6; font-family:monospace; margin:0;'&gt;HARDWARE TRACKER&lt;/h1&gt;
+&lt;p style='color:#3c3c3c; font-family:monospace; font-size:10px; margin:0;'&gt;────────────────────────────────────────&lt;/p&gt;
+&lt;p style='color:#8b949e; font-family:monospace; font-size:9px; margin:2px 0 0 0;'&gt;real-time system monitor &lt;a href='https://github.com/SyKaya' style='color:#569cd6; text-decoration:none;'&gt;[SyKaya]&lt;/a&gt;&lt;/p&gt;
+&lt;/html&gt;</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+      <property name="openExternalLinks">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="topLayout">
+      <property name="spacing">
+       <number>8</number>
+      </property>
+      <item>
+       <widget class="QGroupBox" name="groupBoxCPU">
+        <property name="title">
+         <string>cpu</string>
+        </property>
+        <layout class="QVBoxLayout" name="cpuLayout">
+         <item>
+          <widget class="QLabel" name="labelCPUName">
+           <property name="text">
+            <string>intel core i7</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QProgressBar" name="progressCPU"/>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="cpuStats">
+           <item>
+            <widget class="QLabel" name="labelCPUFreq">
+             <property name="text">
+              <string>freq: -- mhz</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBoxGPU">
+        <property name="title">
+         <string>gpu</string>
+        </property>
+        <layout class="QVBoxLayout" name="gpuLayout">
+         <item>
+          <widget class="QLabel" name="labelGPUName">
+           <property name="text">
+            <string>nvidia geforce</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QProgressBar" name="progressGPU"/>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="gpuStats">
+           <item>
+            <widget class="QLabel" name="labelGPUTemp">
+             <property name="text">
+              <string>temp: -- c</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBoxNetwork">
+        <property name="title">
+         <string>network</string>
+        </property>
+        <layout class="QVBoxLayout" name="networkLayout">
+         <item>
+          <widget class="QLabel" name="labelNetworkIP">
+           <property name="text">
+            <string>ip: --</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="labelNetworkMAC">
+           <property name="text">
+            <string>mac: --</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="networkStats">
+           <item>
+            <widget class="QLabel" name="labelDownload">
+             <property name="text">
+              <string>↓ -- mb/s</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="labelUpload">
+             <property name="text">
+              <string>↑ -- mb/s</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="labelLatency">
+             <property name="text">
+              <string>lat: -- ms</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="midLayout">
+      <property name="spacing">
+       <number>8</number>
+      </property>
+      <item>
+       <widget class="QGroupBox" name="groupBoxRAM">
+        <property name="title">
+         <string>memory</string>
+        </property>
+        <layout class="QVBoxLayout" name="ramLayout">
+         <item>
+          <widget class="QLabel" name="labelRAMTotal">
+           <property name="text">
+            <string>total: -- gb</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QProgressBar" name="progressRAM"/>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="ramStats">
+           <item>
+            <widget class="QLabel" name="labelRAMUsed">
+             <property name="text">
+              <string>used: -- gb</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="labelRAMFree">
+             <property name="text">
+              <string>free: -- gb</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBoxDisk">
+        <property name="title">
+         <string>storage</string>
+        </property>
+        <layout class="QVBoxLayout" name="diskLayout">
+         <item>
+          <widget class="QLabel" name="labelDiskTotal">
+           <property name="text">
+            <string>total: -- gb</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QProgressBar" name="progressDisk"/>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="diskStats">
+           <item>
+            <widget class="QLabel" name="labelDiskUsed">
+             <property name="text">
+              <string>used: -- gb</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="labelDiskFree">
+             <property name="text">
+              <string>free: -- gb</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBoxProcesses">
+      <property name="title">
+       <string>processes</string>
+      </property>
+      <layout class="QVBoxLayout" name="processesLayout">
+       <item>
+        <widget class="QListWidget" name="listProcesses"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="buttonLayout">
+      <property name="spacing">
+       <number>8</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="btnNetworkTest">
+        <property name="text">
+         <string>Download Test</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnRefresh">
+        <property name="text">
+         <string>Upload Test</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QLabel" name="lblStatus">
+      <property name="styleSheet">
+       <string>color: #569cd6; font-family: monospace; font-size: 9px; padding: 4px;</string>
+      </property>
+      <property name="text">
+       <string>&gt; ready</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>650</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>file</string>
+    </property>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>help</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <action name="actionExit">
+   <property name="text">
+    <string>exit</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>about</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
