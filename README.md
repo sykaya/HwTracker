@@ -31,7 +31,7 @@ Developed with performance engineers, system administrators, and security resear
 
 ### Main Interface
 
-![Main Window](screenshots/main.png)
+![Main Window](assets/image.png)
 
 *Main monitoring window displaying CPU, GPU, memory, storage, and network metrics*
 
