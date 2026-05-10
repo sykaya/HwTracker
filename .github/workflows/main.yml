@@ -21,8 +21,7 @@ jobs:
         host: 'windows'
         target: 'desktop'
         arch: 'win64_msvc2019_64'
-        # Modül ismi 'network' olarak düzeltildi
-        modules: 'network' 
+        # Modülleri sildik, varsayılan kurulum yeterli olacaktır.
     
     - name: Configure CMake
       run: |
@@ -35,5 +34,5 @@ jobs:
     - name: Upload executable
       uses: actions/upload-artifact@v4
       with:
-        name: HWTracker-Windows-Build
+        name: HWTracker-Windows-Binary
         path: build/Release/HwTracker.exe
