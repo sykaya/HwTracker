@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/icon.ico" alt="HWTracker" width="128">
+  <img src="assets/icon.ico" alt="HWTracker" width="128">
 </p>
 
 <h1 align="center">HWTracker</h1>
