@@ -144,15 +144,15 @@ HWTracker has undergone comprehensive testing to ensure reliability and performa
 
 ### Option 1: Pre-built Binary
 
-1. Download the latest `HWTracker.exe` from [Releases](https://github.com/SyKaya/HWTracker/releases)
+1. Download the latest `HwTracker.exe` from [Releases](https://github.com/SyKaya/HwTracker/releases)
 2. Run directly — no installation required
 
 ### Option 2: Build from Source
 
 ```bash
-git clone https://github.com/SyKaya/HWTracker.git
-cd HWTracker
+git clone https://github.com/sykaya/HwTracker.git
+cd HwTracker
 mkdir build && cd build
 cmake .. -DCMAKE_PREFIX_PATH="C:/Qt/6.x.x/msvc2019_64"
 cmake --build . --config Release
-./Release/HWTracker.exe
+./Release/HwTracker.exe
