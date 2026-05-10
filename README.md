@@ -31,15 +31,23 @@ Developed with performance engineers, system administrators, and security resear
 
 ### Main Interface
 
-![Main Window](assets/image.PNG)
+![Main Window](screenshots/main.png)
 
-*Main monitoring window displaying CPU, GPU, memory, storage, and network metrics*
+*Main monitoring window displaying real-time CPU, GPU, memory, storage, and network metrics*
+
+### Development Environment
+
+![Development Tools](screenshots/devtools.png)
+
+*Professional toolchain used during development and debugging: Qt Creator, x64dbg, Ghidra, CFF Explorer, Process Hacker, and Docker*
+
+> The tools shown above are part of the standard development and validation workflow. They were used for debugging, binary analysis, memory profiling, and ensuring software integrity — not for reverse engineering third-party products. This reflects a disciplined engineering approach to building reliable system software.
 
 ### Network Monitoring
 
-![Network Test](assets/HwTracker.jpg)
+![Network Test](screenshots/network.png)
 
-*Real-time download/upload speeds and ICMP latency measurement*
+*Built-in ICMP latency test and real-time download/upload speed tracking*
 
 ---
 
