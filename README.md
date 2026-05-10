@@ -1,83 +1,41 @@
-<p align="center">
-  <img src="icon.png" alt="HWTracker Logo" width="120">
-</p>
+# ikik - High-Performance Network Analysis & Monitoring Tool
 
-<h1 align="center">HWTracker</h1>
+![License](https://img.shields.io/badge/license-GPL--3.0-blue.svg)
+![C++](https://img.shields.io/badge/language-C%2B%2B17-00599C.svg)
+![Qt](https://img.shields.io/badge/framework-Qt6-41CD52.svg)
+![Platform](https://img.shields.io/badge/platform-Windows-0078D6.svg)
 
-<p align="center">
-  <strong>Real-Time Hardware Monitoring Tool for Windows</strong>
-</p>
+**ikik**, C++ ve Qt framework kullanılarak geliştirilmiş, düşük gecikmeli ve yüksek hassasiyetli bir ağ trafik analiz aracıdır. Modern yazılım mimarisi prensipleriyle tasarlanan bu proje, ağ kaynaklarının verimliliğini ölçmek ve veri iletim süreçlerini optimize etmek amacıyla geliştirilmiştir.
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Windows-10%2F11-blue?style=flat-square&logo=windows">
-  <img src="https://img.shields.io/badge/license-MIT-green?style=flat-square">
-  <img src="https://img.shields.io/badge/C%2B%2B-17-blue?style=flat-square&logo=c%2B%2B">
-  <img src="https://img.shields.io/badge/Qt-6.0-brightgreen?style=flat-square&logo=qt">
-</p>
+## 🚀 Öne Çıkan Özellikler
 
----
+* **Asenkron Veri Yönetimi:** `QNetworkAccessManager` ile non-blocking mimaride ağ istekleri yönetimi.
+* **Hassas Ölçüm Modülü:** `QElapsedTimer` entegrasyonu ile milisaniye bazlı veri transfer hızı hesaplama.
+* **Modern Kullanıcı Deneyimi:** Windows 11 tasarım diliyle uyumlu, performans odaklı minimalist Qt GUI.
+* **Modüler Derleme:** CMake & Ninja build sistemleri ile farklı platform ve CI/CD süreçlerine kolay entegrasyon.
 
-## Overview
+## 🛠 Teknik Mimari ve Standartlar
 
-**HWTracker** is a lightweight, real-time system monitoring application designed for Windows. It provides instant visibility into critical hardware metrics including CPU, GPU, RAM, disk usage, network activity, and running processes.
+Proje, özellikle savunma sanayii ve kritik sistem yazılımlarında aranan **modülerlik**, **kod okunabilirliği** ve **kaynak yönetimi** standartlarına uygun olarak yapılandırılmıştır.
 
-Designed with system administrators, performance engineers, and security researchers in mind — HWTracker delivers essential telemetry without unnecessary complexity.
+* **Dil:** C++17
+* **Arayüz Teknolojisi:** Qt 6.x
+* **Yapılandırma:** CMake 3.16+
+* **Derleyici:** Ninja / MSVC / MinGW
 
----
+## 📦 Kurulum ve Derleme
 
-## Features
-
-| Module | Metrics |
-|--------|---------|
-| **CPU** | Usage (%), Frequency (MHz), Temperature (°C) |
-| **GPU** | Usage (%), Core Clock, Temperature (°C) |
-| **Memory** | Total, Used, Free (GB) |
-| **Storage** | Total, Used, Free (GB) |
-| **Network** | Local IP, MAC Address, Download/Upload Speed, Latency |
-| **Processes** | Live process list with PID |
-
-- **Live refresh** every 2 seconds
-- **Built-in network latency test** (ICMP ping)
-- **Process tracking** with PID
-- **Dark, professional UI** optimized for extended monitoring sessions
-
----
-
-## Technology Stack
-
-| Component | Technology |
-|-----------|------------|
-| Language | C++17 |
-| Framework | Qt 6 |
-| Build System | CMake |
-| Platform APIs | Windows API, WMI, IP Helper API |
-
----
-
-## Screenshots
-
-<p align="center">
-  <img src="screenshot.png" alt="HWTracker Main Interface" width="650">
-</p>
-
----
-
-## Installation
-
-### Prerequisites
-
-- Windows 10 / 11 (64-bit)
-- [Qt 6](https://www.qt.io/download) runtime (if building from source)
-
-### Download
-
-Pre-built binaries are available in the [Releases](https://github.com/SyKaya/HWTracker/releases) section.
-
-### Build from Source
+Projeyi yerel ortamınızda derlemek için aşağıdaki adımları izleyin:
 
 ```bash
-git clone https://github.com/SyKaya/HWTracker.git
-cd HWTracker
+# Depoyu klonlayın
+git clone [https://github.com/Flexsz/ikik.git](https://github.com/Flexsz/ikik.git)
+
+# Build dizinini oluşturun
 mkdir build && cd build
-cmake ..
-cmake --build . --config Release
+
+# CMake yapılandırmasını başlatın
+cmake .. -G Ninja -DCMAKE_BUILD_TYPE=Release
+
+# Projeyi derleyin
+ninja
