@@ -13,8 +13,7 @@
   <img src="https://img.shields.io/badge/Standard-C%2B%2B17-00599c?style=flat-square&logo=c%2B%2B">
   <img src="https://img.shields.io/badge/Framework-Qt%206-41cd52?style=flat-square&logo=qt">
   <img src="https://img.shields.io/badge/Build-CMake-064f8c?style=flat-square&logo=cmake">
-   <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square">
-  <img src="https://img.shields.io/badge/GPU%20Data-NVIDIA%20%7C%20AMD%20%7C%20Intel-blue?style=flat-square">
+  <img src="https://img.shields.io/badge/License-GPLv3-blue?style=flat-square&logo=gnu">
   <img src="https://img.shields.io/badge/Status-Stable-brightgreen?style=flat-square">
 </p>
 
