@@ -9,10 +9,9 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets LinguistTools Network)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools Network)
+find_package(QT NAMES Qt6 REQUIRED COMPONENTS Widgets LinguistTools Network)
+find_package(Qt6 REQUIRED COMPONENTS Widgets LinguistTools Network)
 
-set(TS_FILES HwTracker_en_US.ts)
 
 set(PROJECT_SOURCES
         src/main.cpp
@@ -23,35 +22,37 @@ set(PROJECT_SOURCES
         include/includes.h
         forms/mainwindow.ui
         src/app.rc
-        ${TS_FILES}
 )
 
+
+set(TS_FILES "${CMAKE_CURRENT_SOURCE_DIR}/HwTracker_en_US.ts")
+
 if(WIN32)
-    set(APP_ICON_RESOURCE "assets/icon.ico")
+    set(APP_ICON_RESOURCE "${CMAKE_CURRENT_SOURCE_DIR}/assets/icon.ico")
     list(APPEND PROJECT_SOURCES ${APP_ICON_RESOURCE})
 endif()
 
-if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(HwTracker
-        MANUAL_FINALIZATION
-        ${PROJECT_SOURCES}
-        assets/icoo.ico
-    )
-    qt_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
+
+qt_add_executable(HwTracker
+    MANUAL_FINALIZATION
+    ${PROJECT_SOURCES}
+)
+
+
+if(EXISTS ${TS_FILES})
+    qt_add_translations(HwTracker TS_FILES ${TS_FILES})
 else()
-    add_executable(HwTracker ${PROJECT_SOURCES})
-    qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
+    message(WARNING "Translation file not found at: ${TS_FILES}")
 endif()
 
 target_link_libraries(HwTracker PRIVATE
-    Qt${QT_VERSION_MAJOR}::Widgets
-    Qt${QT_VERSION_MAJOR}::Network
+    Qt6::Widgets
+    Qt6::Network
 )
 
 if(WIN32)
     target_link_libraries(HwTracker PRIVATE iphlpapi ws2_32 pdh)
 endif()
-
 
 target_include_directories(HwTracker PRIVATE 
     ${CMAKE_CURRENT_SOURCE_DIR}/include
@@ -62,6 +63,4 @@ set_target_properties(HwTracker PROPERTIES
     WIN32_EXECUTABLE TRUE
 )
 
-if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(HwTracker)
-endif()
+qt_finalize_executable(HwTracker)
