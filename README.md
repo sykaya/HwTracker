@@ -9,7 +9,9 @@
 </p>
 
 <p align="center">
-  [![Build](https://github.com/sykaya/HwTracker/actions/workflows/build.yml/badge.svg)](https://github.com/sykaya/HwTracker/actions)
+  <a href="https://github.com/SyKaya/HwTracker/actions/workflows/build.yml">
+    <img src="https://github.com/SyKaya/HwTracker/actions/workflows/build.yml/badge.svg" alt="Build Status">
+  </a>
   <img src="https://img.shields.io/badge/Platform-Windows%2010%20%7C%2011-0078d7?style=flat-square&logo=windows">
   <img src="https://img.shields.io/badge/Standard-C%2B%2B17-00599c?style=flat-square&logo=c%2B%2B">
   <img src="https://img.shields.io/badge/Framework-Qt%206-41cd52?style=flat-square&logo=qt">
