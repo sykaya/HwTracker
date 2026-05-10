@@ -37,15 +37,9 @@ Developed with performance engineers, system administrators, and security resear
 
 ### Network Monitoring
 
-![Network Test](assets/HwTracker.JPG)
+![Network Test](assets/HwTracker.jpg)
 
 *Real-time download/upload speeds and ICMP latency measurement*
-
-### Process List
-
-![Process List](screenshots/processes.png)
-
-*Live process monitoring with PID display*
 
 ---
 
