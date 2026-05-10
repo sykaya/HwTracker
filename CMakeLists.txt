@@ -27,7 +27,7 @@ set(PROJECT_SOURCES
 
 
 if(WIN32)
-    set(APP_ICON_RESOURCE "assets/icoo.ico")
+    set(APP_ICON_RESOURCE "assets/icon.ico")
     list(APPEND PROJECT_SOURCES ${APP_ICON_RESOURCE})
 endif()
 
