@@ -2,7 +2,7 @@
   <img src="assets/icon.ico" alt="HWTracker" width="128">
 </p>
 
-<h1 align="center">HWTracker</h1>
+<h1 align="center">HwTracker</h1>
 
 <p align="center">
   <strong>Professional Real-Time Hardware Monitoring & System Telemetry Tool for Windows</strong>
