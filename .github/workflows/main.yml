@@ -3,8 +3,20 @@ name: Build HWTracker
 on:
   push:
     branches: [ main, master ]
+    # Aşağıdaki dosyalar değiştiğinde Build işlemini tetikleme
+    paths-ignore:
+      - '**.md'
+      - 'assets/**'
+      - 'LICENSE'
+      - '.gitignore'
+      - 'docs/**'
   pull_request:
     branches: [ main, master ]
+    paths-ignore:
+      - '**.md'
+      - 'assets/**'
+      - 'LICENSE'
+      - '.gitignore'
 
 jobs:
   build:
@@ -21,7 +33,7 @@ jobs:
         host: 'windows'
         target: 'desktop'
         arch: 'win64_msvc2019_64'
-        # Modülleri sildik, varsayılan kurulum yeterli olacaktır.
+        # Temel modüller (Network, Widgets) varsayılan olarak gelir.
     
     - name: Configure CMake
       run: |
@@ -34,5 +46,6 @@ jobs:
     - name: Upload executable
       uses: actions/upload-artifact@v4
       with:
-        name: HWTracker-Windows-Binary
+        name: HWTracker-Windows-Package
+        # HwTracker.exe'nin büyük/küçük harf uyumuna ve yoluna dikkat et
         path: build/Release/HwTracker.exe
