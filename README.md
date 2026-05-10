@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/icon.ico" alt="HWTracker" width="128">
+  <img src="docs/icon.ico" alt="HWTracker" width="128">
 </p>
 
 <h1 align="center">HWTracker</h1>
@@ -24,6 +24,28 @@
 **HWTracker** is a lightweight yet powerful hardware monitoring application designed for Windows systems. It provides real-time telemetry data for critical system components including CPU, GPU, RAM, storage, network interfaces, and active processes.
 
 Developed with performance engineers, system administrators, and security researchers in mind — HWTracker delivers accurate, low-latency hardware metrics through a clean, professional interface.
+
+---
+
+## Screenshots
+
+### Main Interface
+
+![Main Window](screenshots/main.png)
+
+*Main monitoring window displaying CPU, GPU, memory, storage, and network metrics*
+
+### Network Monitoring
+
+![Network Test](screenshots/network.png)
+
+*Real-time download/upload speeds and ICMP latency measurement*
+
+### Process List
+
+![Process List](screenshots/processes.png)
+
+*Live process monitoring with PID display*
 
 ---
 
