@@ -1,126 +1,46 @@
-<p align="center">
-  <img src="docs/icon.png" alt="HWTracker" width="128">
-</p>
+# ikik | High-Precision Network Throughput Analyzer
 
-<h1 align="center">HWTracker</h1>
+![C++ Standard](https://img.shields.io/badge/C%2B%2B-17-blue.svg)
+![Qt Version](https://img.shields.io/badge/Qt-6.10-green.svg)
+![Build System](https://img.shields.io/badge/Build-CMake%20%2F%20Ninja-orange.svg)
+![License](https://img.shields.io/badge/License-GPL--3.0-red.svg)
 
-<p align="center">
-  <strong>Professional Real-Time Hardware Monitoring & System Telemetry Tool for Windows</strong>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Platform-Windows%2010%20%7C%2011-0078d7?style=flat-square&logo=windows">
-  <img src="https://img.shields.io/badge/Standard-C%2B%2B17-00599c?style=flat-square&logo=c%2B%2B">
-  <img src="https://img.shields.io/badge/Framework-Qt%206-41cd52?style=flat-square&logo=qt">
-  <img src="https://img.shields.io/badge/Build-CMake-064f8c?style=flat-square&logo=cmake">
-  <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square">
-  <img src="https://img.shields.io/badge/Status-Stable-brightgreen?style=flat-square">
-</p>
+**ikik** is an engineering-grade network analysis tool designed to measure data transmission performance, analyze asynchronous network traffic, and determine system throughput limits within critical network infrastructures.
 
 ---
 
-## 📌 Overview
+## 🛠 Engineering & Technical Specifications
 
-**HWTracker** is a lightweight yet powerful hardware monitoring application designed for Windows systems. It provides real-time telemetry data for critical system components including CPU, GPU, RAM, storage, network interfaces, and active processes.
+The development process prioritizes **deterministic approaches** and **resource optimization**, which are essential for defense industry software standards:
 
-Developed with performance engineers, system administrators, and security researchers in mind — HWTracker delivers accurate, low-latency hardware metrics through a clean, professional interface.
+* **Non-Blocking I/O Architecture:** Implemented via an asynchronous event-loop using `QNetworkAccessManager`, ensuring a responsive GUI while parallelizing multiple network requests.
+* **Low-Level Timing Precision:** Utilizes `QElapsedTimer` to achieve CPU cycle-level precision, minimizing margins of error in real-time bits-per-second (bps) calculations.
+* **Custom Widget Architecture:** Extends beyond standard components by implementing specialized classes like `DraggableLabel`, demonstrating robust OOP principles and custom UI interaction handling.
+* **System Resource Integration:** Deep integration with Windows `.rc` resources, embedding application metadata and high-fidelity icons directly into the binary executable.
 
----
+## 🏗 System Architecture
 
-## 🎯 Key Capabilities
+The application is designed with a separation of concerns similar to the **MVC (Model-View-Controller)** pattern:
+- **UI Layer:** Managed via `.ui` declarations and `mainwindow.ui` for a scalable and maintainable interface.
+- **Logic Layer:** Core network stack and optimized throughput calculation algorithms.
+- **Resource Layer:** Efficient memory management of static assets via the Qt Resource System (`.qrc`).
 
-| Component | Monitored Metrics |
-|-----------|-------------------|
-| **CPU** | Utilization (%), Core Frequency (MHz), Temperature (°C) |
-| **GPU** | Utilization (%), Core Clock (MHz), Temperature (°C) |
-| **Memory (RAM)** | Total Capacity (GB), Used (GB), Available (GB), Usage (%) |
-| **Storage** | Total Capacity (GB), Used (GB), Available (GB), Usage (%) |
-| **Network** | IPv4 Address, MAC Address, Download/Upload Speed (MB/s), ICMP Latency (ms) |
-| **Processes** | Live process list with Process ID (PID) |
+## 🚀 Build & Deployment Strategy
 
----
+The project utilizes modern build standards, specifically **CMake** and **Ninja**, for rapid and reliable compilation.
 
-## ⚙️ Technical Architecture
+### Prerequisites
+- Qt 6.x (MinGW 13.1.0 or higher recommended)
+- CMake 3.16+
+- Ninja Build Tool
 
-| Layer | Technology |
-|-------|------------|
-| **Language** | C++17 |
-| **GUI Framework** | Qt 6 (Widgets, Network, Core modules) |
-| **Build System** | CMake 3.16+ |
-| **Platform API** | Windows API, IP Helper API, WMI |
-| **Performance** | Lightweight event-driven updates |
-| **Deployment** | Single portable executable |
-
----
-
-## 🔧 System Requirements
-
-| Requirement | Minimum |
-|-------------|---------|
-| **OS** | Windows 10 / 11 (64-bit) |
-| **CPU** | Any x86_64 processor |
-| **RAM** | 256 MB |
-| **Disk** | 15 MB free space |
-| **Dependencies** | None (static linking) |
-
----
-
-## 🚀 Features in Detail
-
-### CPU Monitoring
-- Real-time utilization percentage
-- Current operating frequency
-- Thermal reading (when available)
-- Multi-core architecture support
-
-### GPU Monitoring
-- Utilization tracking
-- Core clock frequency
-- Temperature monitoring (for supported GPUs)
-
-### Memory & Storage
-- Accurate capacity detection
-- Real-time used/free calculations
-- Usage percentage with visual progress bars
-
-### Network Analysis
-- Local IPv4 address detection (automatic interface selection)
-- MAC address retrieval
-- Download/Upload speed calculation (bytes monitoring)
-- ICMP-based latency testing (8.8.8.8)
-
-### Process Management
-- Live enumeration of all running processes
-- PID display for each process
-- Clean, scrollable list interface
-
-### User Interface
-- Dark theme optimized for long monitoring sessions
-- Live data refresh (2-second intervals)
-- Manual refresh button
-- Built-in network latency test button
-- Resizable, modern layout with splitter support
-
----
-
-## 📥 Installation
-
-### Option 1: Pre-built Binary
-
-1. Download the latest `HWTracker.exe` from [Releases](https://github.com/SyKaya/HWTracker/releases)
-2. Run directly — no installation required
-
-### Option 2: Build from Source
-
+### Build Instructions
 ```bash
-# Clone repository
-git clone https://github.com/SyKaya/HWTracker.git
-cd HWTracker
+# 1. Clone the repository
+git clone [https://github.com/Flexsz/ikik.git](https://github.com/Flexsz/ikik.git) && cd ikik
 
-# Configure and build
-mkdir build && cd build
-cmake .. -DCMAKE_PREFIX_PATH="C:/Qt/6.x.x/msvc2019_64"
-cmake --build . --config Release
+# 2. Configure the build directory
+cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
 
-# Run
-./Release/HWTracker.exe
+# 3. Execute the build process
+cmake --build build --parallel 8
