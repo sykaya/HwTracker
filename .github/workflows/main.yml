@@ -3,7 +3,7 @@ name: Build HWTracker
 on:
   push:
     branches: [ main, master ]
-    # Aşağıdaki dosyalar değiştiğinde Build işlemini tetikleme
+   
     paths-ignore:
       - '**.md'
       - 'assets/**'
@@ -33,7 +33,7 @@ jobs:
         host: 'windows'
         target: 'desktop'
         arch: 'win64_msvc2019_64'
-        # Temel modüller (Network, Widgets) varsayılan olarak gelir.
+      
     
     - name: Configure CMake
       run: |
@@ -47,5 +47,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: HWTracker-Windows-Package
-        # HwTracker.exe'nin büyük/küçük harf uyumuna ve yoluna dikkat et
         path: build/Release/HwTracker.exe
