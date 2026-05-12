@@ -116,7 +116,7 @@ Developed with performance engineers, system administrators, and security resear
 
 ### User Interface
 - Dark theme optimized for extended monitoring sessions
-- Automatic refresh every 1 seconds
+- Automatic refresh every seconds
 - Manual refresh button for on-demand updates
 - Integrated network latency test
 - Resizable layout with splitter support
